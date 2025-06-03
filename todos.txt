@@ -2,4 +2,4 @@ Study
 Exercise
 Travel
 Clean
-Optimize Code
+Optimize Program
