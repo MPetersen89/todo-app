@@ -1,7 +1,11 @@
 import functions
 import FreeSimpleGUI as sg
 import time
+import os
 
+if not os.path.exists("todos.txt"):
+    with open("todos.txt", 'w') as file:
+        pass
 
 sg.theme("DarkTeal6")
 
@@ -17,11 +21,13 @@ complete_button = sg.Button(image_source="complete.png", mouseover_colors="dark 
                             tooltip="Complete to-do", key="Complete")
 exit_button = sg.Button("Exit")
 
+col1 = sg.Column([[edit_button], [complete_button]])
+
 window = sg.Window('My To-Do App',
                    layout=[[clock],
                            [label],
                            [input_box, add_button],
-                           [list_box, edit_button, complete_button],
+                           [list_box, col1],
                            [exit_button]],
                    font=('Helvetica', 20))
 
